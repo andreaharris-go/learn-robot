@@ -13,6 +13,6 @@ Metadata    More Info      jinlonghouse robot test
 *** Test Cases ***
 Go to Jin Long House should be success with title
     [Tags]                          Home page
-    Open Browser                    https://www.jinlonghouse.com     chrome
+    Open Browser                    https://petstore.octoperf.com/actions/Catalog.action     chrome
     Display Title text should correct
     Close Browser

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="Robot Framework 4.0b2 (Python 3.8.2 on darwin)" name="Generator">
+<meta content="Robot Framework 4.1.1 (Python 3.9.7 on darwin)" name="Generator">
 <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKcAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAqAAAAAAAAAAAAAAAAAAAALIAAAD/AAAA4AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA4AAAAP8AAACxAAAAAAAAAKYAAAD/AAAAuwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/AAAA/wAAAKkAAAD6AAAAzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN8AAAD/AAAA+gAAAMMAAAAAAAAAAgAAAGsAAABrAAAAawAAAGsAAABrAAAAawAAAGsAAABrAAAADAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAIsAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAANEAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAAAAAAAAMgAAADIAAAAyAAAAMgAAADIAAAAyAAAAMgAAADIAAAAFAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAADwAAAB8AAAAAAAAAGAAAABcAAAAAAAAAH8AAABKAAAAAAAAAAAAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAADCAAAA/wAAACkAAADqAAAA4QAAAAAAAAD7AAAA/wAAALAAAAAGAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAIwAAAP4AAAD/AAAA/wAAAGAAAAAAAAAAAAAAAMkAAAD/AAAAigAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAAAAAAAIAAAAcAAAABkAAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAA2gAAAP8AAAD7AAAAywAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN4AAAD/AAAAqwAAAP8AAACvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALIAAAD/AAAAsgAAAAAAAAC5AAAA/wAAAMoAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMkAAAD/AAAAvAAAAAAAAAAAAAAAAAAAAKwAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAArQAAAAAAAAAAwAMAAIABAAAf+AAAP/wAAD/8AAAgBAAAP/wAAD/8AAA//AAAJIwAADHEAAA//AAAP/wAAB/4AACAAQAAwAMAAA==">
 <style media="all" type="text/css">
 /* Generic and misc styles */
@@ -83,14 +83,14 @@ h2 {
 }
 /* Status text colors -- !important allows using them in links */
 .fail {
-    color: #f33 !important;
+    color: #ce3e01 !important;
     font-weight: bold;
 }
 .pass {
-    color: #393 !important;
+    color: #098a09 !important;
 }
 .skip {
-    color: #fed84f !important;
+    color: #927201 !important;
     font-weight: bold;
 }
 .label {
@@ -105,23 +105,20 @@ h2 {
 .label.debug, .label.trace, .label.error, .label.keyword {
     letter-spacing: 0;
 }
-.label.error, .label.fail, .label.pass, .labe.skip, .label.warn {
-    color: #fff !important;
+.label.pass, .label.fail, .label.error, .label.skip, .label.warn {
     font-weight: bold;
-}
-.label.error, .label.fail {
-    background-color: #ee5919;
 }
 .label.pass {
     background-color: #97bd61;
-    color: black !important;
+    color: #000 !important;
 }
-.label.skip {
+.label.fail, .label.error {
+    background-color: #ce3e01;
+    color: #fff !important;
+}
+.label.skip, .label.warn {
     background-color: #fed84f;
-    color: black !important;
-}
-.label.warn {
-    background-color: #b62109;
+    color: #000 !important;
 }
 /* Top right header */
 #top-right-header {
@@ -217,13 +214,13 @@ th.stats-col-graph:hover {
     height: 100%;
 }
 .fail-bar {
-    background: #ee5919;
+    background: #ce3e01;
 }
 .pass-bar {
     background: #97bd61;
 }
 .skip-bar {
-    background:  #fed84f;
+    background: #fed84f;
 }
 /* Tablesorter - adapted from provided Blue Skin */
 .tablesorter-header {
@@ -267,22 +264,19 @@ th {
 /* Summary and total/tag/suite details */
 .details {
     border: 1px solid #ccc;
-    border-collapse: collapse;
+    border-spacing: 0.2em;
     clear: both;
     width: 65em;
     margin-bottom: 1em;
 }
 .details th {
     background: white;
-    width: 10em;
-    white-space: nowrap;
+    width: 11em;
     text-align: left;
     vertical-align: top;
-    padding: 0.2em 0.4em;
 }
 .details td {
     vertical-align: top;
-    padding: 0.2em 0.4em;
 }
 .selector th, .selector td {
     padding-top: 0.5em;
@@ -466,10 +460,10 @@ a:link, a:visited {
 }
 #test-details {
     border-collapse: collapse;
-    table-layout: auto;
+    background: white;
 }
 #test-details th, #test-details td {
-    border: 1px solid black;
+    border: 1px solid #ccc;
 }
 .details-col-header {
     padding: 0;
@@ -1192,7 +1186,10 @@ window.testdata = function () {
     function createBodyItem(parent, element, strings, index) {
         if (element[0] == MESSAGE_TYPE)
             return createMessage(element, strings);
-        return createKeyword(parent, element, strings, index);
+        var messages = util.filter(parent.children(), function (child) {
+            return child.type == 'message';
+        })
+        return createKeyword(parent, element, strings, index - messages.length);
     }
     function createKeyword(parent, element, strings, index) {
         var kw = model.Keyword({
@@ -1585,9 +1582,7 @@ $.template('statColumnsTemplate',
 );
 $.template('suiteStatusMessageTemplate',
     '${total} {{= testOrTask("{test}")}}{{if total != 1}}s{{/if}} total, ' +
-    '<span>${pass} passed</span>, ' +
-    '<span>${fail} failed</span>, ' +
-    '<span>${skip} skipped</span>'
+    '${pass} passed, ${fail} failed, ${skip} skipped'
 );
 // For complete cross-browser experience..
 // http://www.quirksmode.org/js/events_order.html
@@ -1633,22 +1628,22 @@ storage = function () {
 window.output = {};
 </script>
 <script type="text/javascript">
-window.output["suite"] = [1,2,3,0,[4,5,6,7],[1,0,7638],[],[[8,0,0,[9],[1,417,7219],[]]],[],[1,1,0,0]];
+window.output["suite"] = [1,2,3,0,[],[1,0,3638],[[4,5,6,0,[],[1,19,3619],[[7,8,9,0,[10,11,12,13],[1,21,3615],[],[[14,0,0,[15],[1,166,3469],[]]],[],[1,1,0,0]]],[],[],[1,1,0,0]]],[],[],[1,1,0,0]];
 </script>
 <script type="text/javascript">
 window.output["strings"] = [];
 </script>
 <script type="text/javascript">
-window.output["strings"] = window.output["strings"].concat(["*","*Open Browser","*/Users/andreaharris/Documents/tester/learn-robot/01/open_browser.robot","*open_browser.robot","*More Info","*<p>jinlonghouse robot test\x3c/p>","*Version","*<p>1.0\x3c/p>","*Login with click submit only should be fail","*Home page"]);
+window.output["strings"] = window.output["strings"].concat(["*","*Cases","*/usr/local/var/www/learn-robot/cases","*../cases","*01","*/usr/local/var/www/learn-robot/cases/01","*../cases/01","*Open Browser","*/usr/local/var/www/learn-robot/cases/01/open_browser.robot","*../cases/01/open_browser.robot","*More Info","*<p>jinlonghouse robot test\x3c/p>","*Version","*<p>1.0\x3c/p>","*Go to Jin Long House should be success with title","*Home page"]);
 </script>
 <script type="text/javascript">
-window.output["stats"] = [[{"elapsed":"00:00:07","fail":0,"label":"All Tests","pass":1,"skip":0}],[{"elapsed":"00:00:07","fail":0,"label":"Home page","pass":1,"skip":0}],[{"elapsed":"00:00:08","fail":0,"id":"s1","label":"Open Browser","name":"Open Browser","pass":1,"skip":0}]];
+window.output["stats"] = [[{"elapsed":"00:00:03","fail":0,"label":"All Tests","pass":1,"skip":0}],[{"elapsed":"00:00:03","fail":0,"label":"Home page","pass":1,"skip":0}],[{"elapsed":"00:00:04","fail":0,"id":"s1","label":"Cases","name":"Cases","pass":1,"skip":0},{"elapsed":"00:00:04","fail":0,"id":"s1-s1","label":"Cases.01","name":"01","pass":1,"skip":0},{"elapsed":"00:00:04","fail":0,"id":"s1-s1-s1","label":"Cases.01.Open Browser","name":"Open Browser","pass":1,"skip":0}]];
 </script>
 <script type="text/javascript">
-window.output["baseMillis"] = 1613123141096;
+window.output["baseMillis"] = 1657007240782;
 </script>
 <script type="text/javascript">
-window.output["generated"] = 7651;
+window.output["generated"] = 3644;
 </script>
 <script type="text/javascript">
 window.output["expand_keywords"] = null;
@@ -1769,7 +1764,7 @@ function totalDetailSelected() {
 function renderTotalSelector() {
     var args = {linkTarget: 'totals',
                 totalTabStatus: 'detail-tab-selected'};
-    renderSelector(args, 'totalDetailsSelectorTemplate', {title: testOrTask('All {Test}s')});
+    renderSelector(args, 'totalDetailsSelectorTemplate');
     updatePrintSelector(testOrTask('All {Test}s'));
     renderTotalDetails();
 }
@@ -2113,30 +2108,29 @@ function hideHiddenDetailsColumns(elem) {
 </script>
 
 <script type="text/x-jquery-tmpl" id="detailsHeaderTemplate">
-  <h2 id="${linkTarget}">{{= testOrTask('{Test}')}} Details</h2>
+  <h2 id="${linkTarget}">{{= testOrTask('{Test} Details')}}</h2>
   <ul id="detail-tabs">
     <li class="${totalTabStatus} detail-tab">
-      <a href="#totals" onclick="renderTotalSelector()">Totals</a>
+      <a href="#totals" onclick="renderTotalSelector()"
+         title="{{= testOrTask('Show all {tests}')}}">All</a>
     </li>
     <li class="${tagTabStatus} detail-tab">
-      <a href="#tags" onclick="renderTagSelector()">Tags</a>
+      <a href="#tags" onclick="renderTagSelector()"
+         title="{{= testOrTask('Show {tests} by tag')}}">Tags</a>
     </li>
     <li class="${suiteTabStatus} detail-tab">
-      <a href="#suites" onclick="renderSuiteSelector()">Suites</a>
+      <a href="#suites" onclick="renderSuiteSelector()"
+         title="{{= testOrTask('Show {tests} by suite')}}">Suites</a>
     </li>
     <li class="${searchTabStatus} detail-tab">
-      <a href="#search" onclick="renderSearchSelector()">Search</a>
+      <a href="#search" onclick="renderSearchSelector()"
+         title="{{= testOrTask('Free {test} search')}}">Search</a>
     </li>
   </ul>
 </script>
 
 <script  type="text/x-jquery-tmpl" id="totalDetailsSelectorTemplate">
   <table class="details" id="details-header">
-    <tr class="selector">
-      <th>${title}</th>
-      <td>
-      <td id="print-selector"></td>
-    </tr>
   </table>
 </script>
 
@@ -2145,7 +2139,7 @@ function hideHiddenDetailsColumns(elem) {
     <tr class="selector">
       <th>Tag:</th>
       <td id="normal-selector">
-        <select id="tag-detail-selector"
+        <select id="tag-detail-selector" title="Tag selector"
                 onchange="tagDetailSelected(this.options[this.selectedIndex].value)">
           <option selected disabled hidden>-- Select --</option>
           {{each tags}}
@@ -2166,7 +2160,7 @@ function hideHiddenDetailsColumns(elem) {
     <tr class="selector">
       <th>Suite:</th>
       <td id="normal-selector">
-        <select id="suite-detail-selector"
+        <select id="suite-detail-selector" title="Suite selector"
                 onchange="suiteDetailSelected(this.options[this.selectedIndex].value)">
           <option selected disabled hidden>-- Select --</option>
           {{each suites}}
